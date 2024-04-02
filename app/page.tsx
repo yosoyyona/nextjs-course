@@ -6,14 +6,16 @@ export default function Home() {
       flex-col md:flex-row gap-2">
         <input 
           className="w-full rounded-full h-12 bg-gray-200 pl-5 outline-none
-          ring ring-transparent focus:ring-orange-500 focus:ring-offset-2 transition-shadow
-          placeholder:drop-shadow"
-          type="text" 
-          placeholder="Search here..." 
+          ring ring-transparent focus:ring-green-500 focus:ring-offset-2 transition-shadow
+          placeholder:drop-shadow invalid:focus:ring-red-500 peer"
+          type="email" 
+          required
+          placeholder="Email address" 
         />
+        <span className="text-red-500 font-medium hidden peer-invalid:block">Email is required.</span>
         <button className="bg-black text-white font-medium py-2 rounded-full 
-        active:scale-90 transition-transform outline-none md:px-10">
-          Search
+        active:scale-90 transition-transform outline-none md:px-10 peer-required:bg-green-500">
+          Log in
         </button>
       </div>
     </main>
