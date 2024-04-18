@@ -1,10 +1,11 @@
 "use client";
 
 import Input from "../components/input";
-import Button from "../components/btn";
+import Button from "../components/button";
 import SocialLogin from "../components/social-login";
 import { useFormState } from "react-dom";
 import { createAccount } from "./action";
+import { PASSWORD_MIN_LENGTH } from "@/lib/constants";
 
 export default function CreateAccount() {
   const [state, action] = useFormState(createAccount, null)
@@ -21,8 +22,6 @@ export default function CreateAccount() {
           placeholder="Username"
           required
           errors={state?.fieldErrors.username}
-          minLength={5}
-          maxLength={10}
         />
         <Input name="email" type="email" placeholder="Email" required errors={state?.fieldErrors.email} />
         <Input
@@ -31,8 +30,7 @@ export default function CreateAccount() {
           placeholder="Password"
           required
           errors={state?.fieldErrors.password}
-          minLength={10}
-          maxLength={20}
+          minLength={PASSWORD_MIN_LENGTH}
         />
         <Input
           name="confirmPassword"
@@ -40,8 +38,7 @@ export default function CreateAccount() {
           placeholder="Confirm Password"
           required
           errors={state?.fieldErrors.confirmPassword}
-          minLength={10}
-          maxLength={20}
+          minLength={PASSWORD_MIN_LENGTH}
         />
         <Button text="Create account" />
       </form>
