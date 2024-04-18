@@ -16,7 +16,7 @@ export default function SMSLogIn() {
       <form action={action} className="flex flex-col gap-3">
         <Input
           name="phone"
-          type="number"
+          type="text"
           placeholder="Phone number"
           required
         />
@@ -25,6 +25,8 @@ export default function SMSLogIn() {
           type="number"
           placeholder="Verification code"
           required
+          min={100000}
+          max={999999}
         />
         <Button text="Verify" />
       </form>
